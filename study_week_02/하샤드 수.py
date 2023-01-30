@@ -6,5 +6,3 @@ def solution(x):
     if x % n != 0:
         answer = False
     return answer
-
-print(solution(210))
