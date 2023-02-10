@@ -1,0 +1,22 @@
+T = int(input())
+
+for _ in range(T):  # 몇번 반복할 것인지?
+    s = []
+    n = input()
+    result = True  # for문 나온 후 조건문 실행을 위해
+    for v in n:   
+        if v == '(':  
+            s.append(v)  # '(' 이면 리스트에 추가
+        else:
+            if len(s) == 0: # '(' 가 아니고 ')' 일때 리스트가 비어있으면 NO를 출력, False를 반환, break
+                print('NO')
+                result = False 
+                break
+            else:         # ')' 이면 리스트의 가장 끝 요소를 pop(삭제)
+                s.pop()
+    if result == True:  # 반복문을 다 실행하고 True이면 실행할 조건문
+        if len(s) == 0: # 리스트가 비어있으면 올바른 괄호이므로 YES를 출력
+            print('YES')
+        else:          # 리스트가 비어있지 않으면 NO를 출력
+            print('NO')
+        
