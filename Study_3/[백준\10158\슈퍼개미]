@@ -1,0 +1,30 @@
+l=[]
+for i in range(10):
+    a=[int(x) for x in input().split()]
+    l.append(a)
+    
+n = 1
+p = 1
+l[n][p] = 9
+while True :
+    if l[n][p+1] == 0:
+        l[n][p+1] = 9
+        p+=1
+
+    elif l[n+1][p] == 0:
+        l[n+1][p] = 9
+        n+=1
+    elif l[n][p+1] == 2:
+        l[n][p+1] = 9
+        p+=1
+        break
+    elif l[n+1][p] == 2:
+        l[n+1][p] = 9
+        n+=1
+        break
+    else:
+        break
+for k in range(10):
+    for j in range(10):
+        print(l[k][j], end=" ")
+    print()
