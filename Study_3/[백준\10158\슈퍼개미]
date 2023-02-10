@@ -1,30 +1,30 @@
-l=[]
+l=[]   # 위치를 저장할 리스트
 for i in range(10):
-    a=[int(x) for x in input().split()]
-    l.append(a)
+    a=[int(x) for x in input().split()]   # input받은 리스트를
+    l.append(a)               # l에 append
     
-n = 1
+n = 1  # 개미가 출발하는 위치 인덱스
 p = 1
-l[n][p] = 9
+l[n][p] = 9        # 개미가 거쳐간 곳은 9로 표현
 while True :
-    if l[n][p+1] == 0:
-        l[n][p+1] = 9
-        p+=1
+    if l[n][p+1] == 0:  # 개미의 현 위치의 오른쪽이 0(이동가능)이면
+        l[n][p+1] = 9   # 그 위치를 9로 변경(개미의 이동경로 표시)
+        p+=1            # 개미의 위치를 오른쪽으로 한칸 이동
 
-    elif l[n+1][p] == 0:
-        l[n+1][p] = 9
-        n+=1
-    elif l[n][p+1] == 2:
-        l[n][p+1] = 9
-        p+=1
-        break
-    elif l[n+1][p] == 2:
-        l[n+1][p] = 9
-        n+=1
-        break
-    else:
-        break
-for k in range(10):
+    elif l[n+1][p] == 0:  # 개미의 현 위치의 오른쪽이 0이 아니고(1, 이동불가), 아래쪽이 0이면
+        l[n+1][p] = 9     # 그 위치를 9로 변경
+        n+=1         # 개미 위치 변경
+    elif l[n][p+1] == 2:  # 개미의 오른쪽이 0도 아니고 1도 아니고 2이면 먹이를 찾은 것,
+        l[n][p+1] = 9     # 그 위치를 9로 변경
+        p+=1             # 개미 위치 변경
+        break            # 먹이를 찾았으므로 break
+    elif l[n+1][p] == 2:  # 오른쪽이 아니라 아래쪽이 2이면 먹이를 찾은 것,
+        l[n+1][p] = 9     # 그 위치를 9로 변경
+        n+=1            # 개미 위치 변경
+        break           # 먹이 찾고 break
+    else:             # 위 조건문들 중 모두 False이면, 이동할 곳이 없기 때문에
+        break        # break
+for k in range(10):   # 출력문.
     for j in range(10):
         print(l[k][j], end=" ")
     print()
